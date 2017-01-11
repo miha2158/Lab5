@@ -26,6 +26,9 @@ namespace Lab5
 
         public static int[] Extend1Dim(int[] array, int element)
         {
+            if (array == null || array.Length == 0)
+                return new int[1] {element};
+
             int[] temp = new int[array.Length + 1];
 
             for (int i = 0; i < array.Length; i++)

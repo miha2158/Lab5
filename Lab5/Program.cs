@@ -238,7 +238,7 @@ namespace Lab5
             switch (index)
             {
                 case 0:
-                    int temp;
+                    int temp = 0;
 
                     switch (arrayType)
                     {
@@ -260,7 +260,7 @@ namespace Lab5
                                 break;
                             }
                             Console.WriteLine("Введите номер лишнго столбца");
-                            while (!int.TryParse(Console.ReadLine(), out temp) && temp > 0 && temp < ar2D.GetLength(1))
+                            while (!int.TryParse(Console.ReadLine(), out temp) || temp <= 0 || temp > ar2D.GetLength(1))
                             {
                                 Console.CursorTop--;
                                 Console.WriteLine("Номер столбца должен быть целым числом от 1 до {0}", ar2D.GetLength(1));
@@ -303,10 +303,9 @@ namespace Lab5
 
         static void Main(string[] args)
         {
-            int[] ar1D = {0};
-            int[,] ar2D = {{0}};
-            int[][] arJ = new int[1][];
-            arJ[0] = new[] {0};
+            int[] ar1D = null;
+            int[,] ar2D = null;
+            int[][] arJ = null;
             Console.WriteLine(" ");
             do
             {
@@ -339,6 +338,7 @@ namespace Lab5
                 ActionItems[0] = "";
 
             } while (true);
+            Console.Beep();
         }
     }
 }
